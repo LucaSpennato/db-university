@@ -16,7 +16,7 @@
     <-->
 
 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
-    SELECT `teachers`.`id` ,`teachers`.`name` AS `teacher`, `courses`.`name`, `courses`.`year`, `courses`.`period`
+    SELECT `teachers`.`id` ,`teachers`.`name` AS `teacher`, `courses`.`name` AS `course_name`, `courses`.`year`, `courses`.`period`
     FROM `courses`
     INNER JOIN `course_teacher`
     ON `courses`.`id` = `course_teacher`.`course_id`
@@ -27,6 +27,14 @@
 
 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea
 a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
+    SELECT *
+    FROM `students`
+    INNER JOIN `degrees`
+    ON `students`.`degree_id` = `degrees`.`id`
+    LEFT JOIN `departments`
+    ON `degrees`.`department_id` = `departments`.`id`
+    ORDER BY `students`.`surname`,`students`.`name`  ASC;
+    <-->
 
 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti 
 
