@@ -48,7 +48,7 @@ a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome
     <-->
 
 6. Selezionare tutti i docenti che insegnano nel dipartimento di matematica (54)
-    SELECT `teachers`.`id`, `teachers`.`name` AS `teacher_name`, `departments`.`id`, `departments`.`name` AS `department` 
+    SELECT DISTINCT `teachers`.`id`, `teachers`.`name` AS `teacher_name`, `departments`.`id`, `departments`.`name` AS `department` 
     FROM `teachers`
     JOIN `course_teacher`
     ON `teachers`.`id` = `course_teacher`.`teacher_id`
